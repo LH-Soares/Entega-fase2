@@ -1,6 +1,6 @@
 package com.br.mongo.mongo;
 
-import model.Produto;
+import model.Vacinacao;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
 import com.mongodb.client.MongoCollection;
@@ -32,11 +32,14 @@ public class App {
        MongoDatabase database = mongoClient.getDatabase("exemplo")
     		   .withCodecRegistry(projoCodecRegistry);
        
-       MongoCollection<Produto> collection = database.getCollection("Produto",Produto.class);
+       MongoCollection<Vacinacao> collection = database.getCollection("Vacinacao",Vacinacao.class);
        
-      // collection.insertOne(new Produto(1,"Arroz",5));
-       //collection.updateOne(new Document("_id",1), set("descricao","Arroz Parbolizado"));
-       collection.deleteOne(new Document("descricao","Arroz Parbolizado"));
+      collection.insertOne(new Vacinacao(1,63452,"Recebidas"));
+      collection.insertOne(new Vacinacao(2,59062,"Aplicadas"));
+      // collection.updateOne(new Document("_id",1), set("doses",50000));
+      // collection.updateOne(new Document("_id",2), set("doses",50000));
+       //collection.deleteOne(new Document("vacinas","Recebidas"));
+     //collection.deleteOne(new Document("vacinas","Aplicadas"));
        
    	
 	
